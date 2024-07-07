@@ -1,22 +1,26 @@
 <template>
     <ul>
         <Points 
-        v-for = "point in points"
-        :point = "point.val"
-        :id = "point.id"
-        :key = point.id
-        @editPoint = "editPoint"
-        @deletePoint = "deletePoint"
+            v-for = "point in points"
+            :point = "point.val"
+            :id = "point.id"
+            :key = point.id
+            :editing = "isUserEditing"
+            @editPoint = "editPoint"
+            @deletePoint = "deletePoint"
+            @hideAndShowEditButton = "hideAndShowEditButton"
         />
     </ul>
+    
   <addPoint 
-  @addNewPoint = "addNewPoint"
+    @addNewPoint = "addNewPoint"
   />
 </template>
 
 <script>
-  import Points from './components/points.vue'
-  import addPoint from './components/addPoint.vue'
+  import Points from './components/points.vue';
+  import addPoint from './components/addPoint.vue';
+
   export default {
     data(){
         return{
@@ -30,6 +34,8 @@
                     val: 'point2'
                 }
             ],
+
+            isUserEditing: false,
         }
     },
 
@@ -52,15 +58,21 @@
             newPoint.id =  this.points.length + 1;
             newPoint.val = pointText;
             this.points.push(newPoint);
+        },
+
+        hideAndShowEditButton(){
+            this.isUserEditing = !this.isUserEditing;
         }
     },
+
     components :{
         Points,
         addPoint,
     }
+
   }
 </script>
 
-<style>
+<style scoped>
     
 </style>
