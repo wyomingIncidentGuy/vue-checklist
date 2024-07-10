@@ -3,9 +3,16 @@
     <template v-if = "isEdit == false">
       <input type="checkbox" v-model = "isDone.Done">
       <p :class = "isDone">{{ point }}</p>
-      <button class = "editButton" @click = "edit" v-if = "!isDone.Done && !editing">edit</button>
-      <button class = "deleteButton" @click = "del">delete</button>
-      <p>{{ editing }}</p>
+
+      <button 
+      class = "editButton" 
+      @click = "edit" 
+      v-if = "!isDone.Done && !editing"
+      >edit</button>
+
+      <button class = "deleteButton" 
+      @click = "del"
+      >delete</button>
     </template>
 
     <template v-else>
