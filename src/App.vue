@@ -18,22 +18,14 @@
 </template>
 
 <script>
+  import {nanoid} from 'nanoid';
   import Points from './components/points.vue';
   import addPoint from './components/addPoint.vue';
 
   export default {
     data(){
         return{
-            points: [
-                {
-                    id:1,
-                    val:'point1'
-                },
-                {
-                    id:2,
-                    val: 'point2'
-                }
-            ],
+            points: [],
 
             isUserEditing: false,
         }
@@ -55,7 +47,7 @@
 
         addNewPoint(pointText){
             let newPoint = {};
-            newPoint.id =  this.points.length + 1;
+            newPoint.id =  nanoid();
             newPoint.val = pointText;
             this.points.push(newPoint);
         },
