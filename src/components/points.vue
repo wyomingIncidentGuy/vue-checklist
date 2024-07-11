@@ -1,30 +1,35 @@
 <template>
   <li>
     <template v-if = "isEdit == false">
-      <input type="checkbox" v-model = "isDone.Done">
+      
+      <myCheckbox v-model="isDone.Done"/>
       <p :class = "isDone">{{ point }}</p>
 
-      <button 
-      class = "editButton" 
-      @click = "edit" 
+      <myButton
+      @click = "edit"
       v-if = "!isDone.Done && !editing"
-      >edit</button>
+      >edit</myButton>
 
-      <button class = "deleteButton" 
+      <myButton
       @click = "del"
-      >delete</button>
+      >delete</myButton>
+
     </template>
 
     <template v-else>
       <form action="" @click.prevent>
-        <input type="text" v-model = "newText">
-        <button  @click = "save">save</button>
+        <myInput v-model="newText"/>
+        <myButton
+        @click = "save"
+        >save</myButton>
       </form>
     </template>
   </li>
 </template>
 
 <script>
+import MyCheckbox from './UI/myCheckbox.vue';
+
   export default {
     props: {
         point: String,
@@ -41,7 +46,7 @@
 
         isDone: {
           Done:false
-        },
+        }
         
       }
     },

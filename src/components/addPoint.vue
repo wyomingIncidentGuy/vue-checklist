@@ -1,7 +1,11 @@
 <template>
-  <form action="" @click.prevent>
-    <input type="text" v-model = "newPointValue">
-    <button @click = "add">create point</button>
+  <form action="" @submit.prevent>
+    <myInput v-model="newPointValue"/>
+
+    <myButton
+    @click = "add"
+    >create point</myButton>
+
   </form>
 </template>
 
