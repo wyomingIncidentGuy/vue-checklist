@@ -1,20 +1,14 @@
 <template>
-    <ul>
-        <Points 
-            v-for = "point in points"
-            :point = "point.val"
-            :id = "point.id"
-            :key = point.id
-            :editing = "isUserEditing"
-            @editPoint = "editPoint"
-            @deletePoint = "deletePoint"
-            @hideAndShowEditButton = "hideAndShowEditButton"
-        />
-    </ul>
-    
-  <addPoint 
+    <addPoint 
     @addNewPoint = "addNewPoint"
-  />
+    />
+    
+    <Points
+        :points = "points"
+        @editPoint = "editPoint"
+        @deletePoint = "deletePoint"
+    />
+    
 </template>
 
 <script>
@@ -26,8 +20,6 @@
     data(){
         return{
             points: [],
-
-            isUserEditing: false,
         }
     },
 
@@ -51,10 +43,6 @@
             newPoint.val = pointText;
             this.points.push(newPoint);
         },
-
-        hideAndShowEditButton(){
-            this.isUserEditing = !this.isUserEditing;
-        }
     },
 
     components :{

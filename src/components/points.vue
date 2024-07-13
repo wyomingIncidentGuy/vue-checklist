@@ -1,78 +1,38 @@
 <template>
-  <li>
-    <template v-if = "isEdit == false">
-      
-      <myCheckbox v-model="isDone.Done"/>
-      <p :class = "isDone">{{ point }}</p>
-
-      <myButton
-      @click = "edit"
-      v-if = "!isDone.Done && !editing"
-      >edit</myButton>
-
-      <myButton
-      @click = "del"
-      >delete</myButton>
-
-    </template>
-
-    <template v-else>
-      <form action="" @click.prevent>
-        <myInput v-model="newText"/>
-        <myButton
-        @click = "save"
-        >save</myButton>
-      </form>
-    </template>
-  </li>
+  <ul>
+    <point 
+    v-for="point in points"
+    :point="point"
+    :id = "point.id"
+    :key = point.id
+    @editPoint="edit"
+    @deletePoint="del"
+    />
+  </ul>
 </template>
 
 <script>
-import MyCheckbox from './UI/myCheckbox.vue';
+  import point from './point.vue';
 
   export default {
     props: {
-        point: String,
-        id: Number,
-        editing: Boolean
+        points: Object,
     },
 
-    emits: ["editPoint", "deletePoint", "hideAndShowEditButton"],
-    
-    data(){
-      return{
-        isEdit:false,
-        newText:this.point,
-
-        isDone: {
-          Done:false
-        }
-        
-      }
-    },
+    emits: ["editPoint", "deletePoint"],
 
     methods: {
-        edit(){
-          this.isEdit = true;
-          this.$emit("hideAndShowEditButton");
+        edit(id, newText){
+          this.$emit("editPoint", id, newText);
         },
 
-        del(){
-          this.$emit("deletePoint", this.id);
+        del(id){
+          this.$emit("deletePoint", id);
         },
+    },
 
-        save(){
-          this.$emit("hideAndShowEditButton");
-          if(this.newText.length > 0){
-            this.$emit("editPoint", this.id, this.newText);
-            this.isEdit = false;
-          }
-
-          else{
-            this.$emit("deletePoint", this.id);
-          }
-
-        }
+    components: {
+      point
     }
   }
 </script>
