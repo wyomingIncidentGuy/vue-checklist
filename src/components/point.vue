@@ -6,7 +6,7 @@
 
       <myButton
       @click = "edit"
-      v-if = "!isDone.Done && !isEdit"
+      v-if = "!isDone.Done"
       >edit</myButton>
 
       <myButton
@@ -24,11 +24,11 @@
         @click = "save"
         >save</myButton>
       </form>
+      <myButton
+      @click="cancelDialog"
+      >cancel</myButton>
     </dialogWindow>
-
   </div>
-  
-  
 </template>
 
 <script>
@@ -52,8 +52,6 @@ export default {
         isDone: {
           Done:false
         },
-
-        dialogVisible: false,
         
       }
     },
@@ -77,6 +75,11 @@ export default {
           else{
             this.$emit("deletePoint", this.point.id);
           }
+      },
+
+      cancelDialog(){
+        this.isEdit=false;
+        this.newText = this.point.val;
       }
     }
 }
