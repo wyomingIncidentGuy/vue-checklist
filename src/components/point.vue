@@ -1,9 +1,8 @@
 <template>
-  <li>
-    <template v-if = "isEdit == false">
-      
+  <div>
+    <li>
       <myCheckbox v-model="isDone.Done"/>
-      <p :class = "isDone">{{ point.val }}</p>
+      <p :class = "isDone">{{ this.newText }}</p>
 
       <myButton
       @click = "edit"
@@ -13,18 +12,23 @@
       <myButton
       @click = "del"
       >delete</myButton>
+    
+    </li>
 
-    </template>
-
-    <template v-else>
+    <dialogWindow
+    :visible="isEdit"
+    >
       <form action="" @click.prevent>
         <myInput v-model="newText"/>
         <myButton
         @click = "save"
         >save</myButton>
       </form>
-    </template>
-  </li>
+    </dialogWindow>
+
+  </div>
+  
+  
 </template>
 
 <script>
@@ -47,7 +51,9 @@ export default {
 
         isDone: {
           Done:false
-        }
+        },
+
+        dialogVisible: false,
         
       }
     },

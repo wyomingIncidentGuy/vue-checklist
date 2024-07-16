@@ -43,6 +43,10 @@
             newPoint.val = pointText;
             this.points.push(newPoint);
         },
+
+        showDialog(){
+            this.dialogVisible = !this.dialogVisible;
+        }
     },
 
     components :{
