@@ -1,6 +1,6 @@
 <template>
-    <div class="dialog__background" v-if="visible" @click.stop="hideDialog">
-        <div class="dialog__content" @click.stop>
+    <div class="dialog__background" v-if="visible">
+        <div class="dialog__content">
             <slot></slot>
         </div>
     </div>
@@ -18,14 +18,8 @@ export default {
         }
     },
 
-    emits: {
-
-    },
-
     methods: {
-        hideDialog(){
-            this.$emit('update:dialogVisible', false);
-        }
+
     }
 }
 
