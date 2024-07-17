@@ -39,9 +39,12 @@ export default {
     }
 
     .dialog__content{
-        margin:auto;
+        display:flex;
+        justify-content: space-around;
         background: white;
         border-radius: 12px;
+        min-width:20vw;
+        min-height:400px;
         padding:20px;
     }
 </style>
