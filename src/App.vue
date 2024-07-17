@@ -1,14 +1,15 @@
 <template>
-    <addPoint 
-    @addNewPoint = "addNewPoint"
-    />
-    
-    <Points
-        :points = "points"
-        @editPoint = "editPoint"
-        @deletePoint = "deletePoint"
-    />
-    
+    <div class="app">
+        <addPoint 
+        @addNewPoint = "addNewPoint"
+        />
+        
+        <Points
+            :points = "points"
+            @editPoint = "editPoint"
+            @deletePoint = "deletePoint"
+        />
+    </div>
 </template>
 
 <script>
@@ -57,6 +58,15 @@
   }
 </script>
 
-<style scoped>
-    
+<style>
+    @font-face {
+            font-family: 'Roboto-Regular';
+            src: url('./assets/fonts/Roboto-Regular.ttf');
+    }
+    .app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Roboto-Regular';
+    }
 </style>

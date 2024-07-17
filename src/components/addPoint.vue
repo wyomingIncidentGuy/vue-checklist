@@ -1,8 +1,10 @@
 <template>
   <form action="" @submit.prevent>
-    <myInput v-model="newPointValue"/>
+    <myInput class="add__point__input"
+    v-model="newPointValue"
+    />
 
-    <myButton
+    <myButton class="add__point__button"
     @click = "add"
     >create point</myButton>
 
@@ -33,6 +35,15 @@
   }
 </script>
 
-<style>
+<style scoped>
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+  }
 
+  .add__point__button{
+    align-self: flex-end;
+  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <point 
+    <point class="point"
     v-for="point in points"
     :point="point"
     :id = "point.id"
@@ -37,18 +37,14 @@
   }
 </script>
 
-<style>
-  li{
-    list-style-type: none;
+<style scoped>
+  .point{
     display: flex;
-    align-items: center;
-  }
-
-  .editButton{
-    height: 20px;
-  }
-
-  p.Done{
-    text-decoration: line-through;
+    flex-direction: row;
+    width: 600px;
+    max-width: 600px;
+    margin-top:15px;
+    border-bottom: 1px solid #cfcdcd;
+    padding-bottom:15px;
   }
 </style>

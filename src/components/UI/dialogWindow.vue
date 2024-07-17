@@ -41,10 +41,11 @@ export default {
     .dialog__content{
         display:flex;
         justify-content: space-around;
+        align-items: center;
         background: white;
         border-radius: 12px;
         min-width:20vw;
-        min-height:400px;
+        min-height:200px;
         padding:20px;
     }
 </style>

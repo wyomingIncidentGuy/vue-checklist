@@ -23,10 +23,10 @@
         <myButton
         @click = "save"
         >save</myButton>
-      </form>
-      <myButton
-      @click="cancelDialog"
-      >cancel</myButton>
+        <myButton
+        @click="cancelDialog"
+        >cancel</myButton>
+        </form>
     </dialogWindow>
   </div>
 </template>
@@ -87,5 +87,17 @@ export default {
 </script>
 
 <style>
-    
+ li{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+
+  p{
+    font-size:18px;
+  }
+
+  p.Done{
+    text-decoration: line-through;
+  }
 </style>

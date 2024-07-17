@@ -21,5 +21,17 @@ export default {
 </script>
 
 <style scoped>
-    
+    input{
+        border-radius:10px;
+        width: 500px;
+        height: 50px;
+        border:1px solid grey;
+        font-size:18px;
+        font-family: 'Roboto-Regular';
+    }
+
+    input:focus{
+      outline:rgb(245, 49, 49);
+      border-color: rgb(245, 49, 49);
+    }
 </style>
