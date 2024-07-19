@@ -41,8 +41,6 @@
   .point{
     display: flex;
     flex-direction: row;
-    width: 600px;
-    max-width: 600px;
     margin-top:15px;
     border-bottom: 1px solid #cfcdcd;
     padding-bottom:15px;

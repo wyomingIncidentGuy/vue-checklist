@@ -1,18 +1,24 @@
 <template>
   <div>
-    <li>
-      <myCheckbox v-model="isDone.Done"/>
-      <p :class = "isDone">{{ this.newText }}</p>
+    <li class="point__item">
+      <div class="point__content">
+        <myCheckbox v-model="isDone.Done"/>
+        <myParagraph 
+        :textContent="newText"
+        :className="isDone"
+        />
+      </div>
 
-      <myButton
-      @click = "edit"
-      v-if = "!isDone.Done"
-      >edit</myButton>
+      <div class="point__buttons">
+        <myButton
+        @click = "edit"
+        v-if = "!isDone.Done"
+        >edit</myButton>
 
-      <myButton
-      @click = "del"
-      >delete</myButton>
-    
+        <myButton
+        @click = "del"
+        >delete</myButton>
+      </div>
     </li>
 
     <dialogWindow
@@ -20,18 +26,25 @@
     >
       <form action="" @click.prevent>
         <myInput v-model="newText"/>
-        <myButton
-        @click = "save"
-        >save</myButton>
-        <myButton
-        @click="cancelDialog"
-        >cancel</myButton>
+
+        <div class="form__buttons">
+
+          <myButton
+          @click="cancelDialog"
+          >cancel</myButton>
+
+          <myButton
+          @click = "save"
+          >save</myButton>
+
+        </div>
         </form>
     </dialogWindow>
   </div>
 </template>
 
 <script>
+
 export default {
     props: {
       point:{
@@ -63,7 +76,7 @@ export default {
       },
 
       del(){
-        this.$emit('deletePoint', this.point.id)
+        this.$emit('deletePoint', this.point.id);
       },
 
       save(){
@@ -78,7 +91,7 @@ export default {
       },
 
       cancelDialog(){
-        this.isEdit=false;
+        this.isEdit = false;
         this.newText = this.point.val;
       }
     }
@@ -87,17 +100,21 @@ export default {
 </script>
 
 <style>
- li{
+ .point__item{
     list-style-type: none;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 400px;
+    max-width: 500px;
   }
 
-  p{
-    font-size:18px;
+  .form__buttons{
+    display:flex;
+    justify-content: space-between;
   }
 
-  p.Done{
-    text-decoration: line-through;
+  .point__content{
+    display: flex;
   }
 </style>

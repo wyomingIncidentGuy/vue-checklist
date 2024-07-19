@@ -1,5 +1,5 @@
 <template>
-    <input type="text" :value="modelValue" @input="updateInput">
+    <input type="text" :value="modelValue" @input="updateInput" maxlength="40">
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
 <style scoped>
     input{
         border-radius:10px;
-        width: 500px;
+        min-width: 400px;
         height: 50px;
         border:1px solid grey;
         font-size:18px;

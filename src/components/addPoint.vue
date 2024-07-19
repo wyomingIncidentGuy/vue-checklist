@@ -1,6 +1,6 @@
 <template>
   <form action="" @submit.prevent>
-    <myInput class="add__point__input"
+    <myInput
     v-model="newPointValue"
     />
 

@@ -25,7 +25,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
     .dialog__background{
         display: flex;
         justify-content: center;
@@ -45,7 +45,7 @@ export default {
         background: white;
         border-radius: 12px;
         min-width:20vw;
-        min-height:200px;
+        min-height:100px;
         padding:20px;
     }
 </style>
