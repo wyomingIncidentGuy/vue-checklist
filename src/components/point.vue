@@ -28,14 +28,13 @@
         <myInput v-model="newText"/>
 
         <div class="form__buttons">
+          <myButton
+          @click = "save"
+          >save</myButton>
 
           <myButton
           @click="cancelDialog"
           >cancel</myButton>
-
-          <myButton
-          @click = "save"
-          >save</myButton>
 
         </div>
         </form>
@@ -112,6 +111,7 @@ export default {
   .form__buttons{
     display:flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
   }
 
   .point__content{
