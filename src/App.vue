@@ -42,7 +42,7 @@
             let newPoint = {};
             newPoint.id =  nanoid();
             newPoint.val = pointText;
-            this.points.push(newPoint);
+            this.points.unshift(newPoint);
         },
 
         showDialog(){

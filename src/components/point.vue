@@ -110,7 +110,7 @@ export default {
 
   .form__buttons{
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row-reverse;
   }
 
