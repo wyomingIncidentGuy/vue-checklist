@@ -1,17 +1,19 @@
 <template>
-  <ul>
-    <transition-group name="points__list">
-      <point class="point"
-      v-for="point in points"
-      :point="point"
-      :id = "point.id"
-      :key = point.id
-      @editPoint="edit"
-      @deletePoint="del"
-      />
-    </transition-group>
+  <transition name = "points">
+    <ul>
+      <transition-group name="points__list">
+        <point class="point"
+        v-for="point in points"
+        :point="point"
+        :id = "point.id"
+        :key = point.id
+        @editPoint="edit"
+        @deletePoint="del"
+        />
+      </transition-group>
+    </ul>
+  </transition>
     
-  </ul>
 </template>
 
 <script>
@@ -49,14 +51,20 @@
     padding-bottom:15px;
   }
 
+  .points__list{
+    display: block;
+  }
+
   .points__list-item {
     display: inline-block;
     margin-right: 10px;
   }
+
   .points__list-enter-active,
   .points__list-leave-active {
     transition: all .5s ease;
   }
+
   .points__list-enter-from,
   .points__list-leave-to {
     opacity: 0;
