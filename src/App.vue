@@ -5,9 +5,9 @@
         />
         
         <Points
-            :points = "points"
+            :points = "this.points"
             @editPoint = "editPoint"
-            @deletePoint = "deletePoint"
+            @deletePoint = "addToRecycleBin"
         />
     </div>
 </template>
@@ -21,6 +21,7 @@
     data(){
         return{
             points: [],
+            recycleBin:[]
         }
     },
 
@@ -34,8 +35,18 @@
             });
         },
 
-        deletePoint(id){
+        addToRecycleBin(id){
+            this.points.map( (point) => {
+                if(point.id == id){
+                    this.recycleBin.unshift(point);
+                }
+            });
+
             this.points = this.points.filter( (point) => point.id !== id);
+        },
+
+        deletePoint(id, array){
+            array = array.filter( (point) => point.id !== id);
         },
 
         addNewPoint(pointText){
@@ -60,8 +71,8 @@
 
 <style>
     @font-face {
-            font-family: 'Roboto-Regular';
-            src: url('./assets/fonts/Roboto-Regular.ttf');
+        font-family: 'Roboto-Regular';
+        src: url('./assets/fonts/Roboto-Regular.ttf');
     }
     .app{
         display: flex;
