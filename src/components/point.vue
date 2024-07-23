@@ -3,20 +3,23 @@
     <li class="point__item">
       <div class="point__content">
         <myCheckbox v-model="isDone.Done"/>
+
         <myParagraph 
-        :textContent="newText"
-        :className="isDone"
+          :textContent="newText"
+          :className="isDone"
         />
       </div>
 
       <div class="point__buttons">
-        <myButton
-        @click = "edit"
-        v-if = "!isDone.Done"
-        >edit</myButton>
+        <transition name="fade">
+          <myButton
+            @click = "edit"
+            v-if = "!isDone.Done"
+          >edit</myButton>
+        </transition>
 
         <myButton
-        @click = "del"
+          @click = "addToRecycleBin"
         >delete</myButton>
       </div>
     </li>
@@ -29,11 +32,11 @@
 
         <div class="form__buttons">
           <myButton
-          @click = "save"
+            @click = "save"
           >save</myButton>
 
           <myButton
-          @click="cancelDialog"
+            @click="cancelDialog"
           >cancel</myButton>
 
         </div>
@@ -53,7 +56,8 @@ export default {
 
     emits: [
       'editPoint', 
-      'deletePoint',
+      'addToRecycleBin',
+      'deletePoint'
     ],
   
     data(){
@@ -74,8 +78,8 @@ export default {
         this.$emit('editPoint', this.point.id, this.newText);
       },
 
-      del(){
-        this.$emit('deletePoint', this.point.id);
+      addToRecycleBin(){
+        this.$emit('addToRecycleBin', this.point.id);
       },
 
       save(){
@@ -85,6 +89,7 @@ export default {
           }
 
           else{
+            this.isEdit = false;
             this.$emit("deletePoint", this.point.id);
           }
       },
@@ -116,5 +121,15 @@ export default {
 
   .point__content{
     display: flex;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+      transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+      opacity: 0;
   }
 </style>

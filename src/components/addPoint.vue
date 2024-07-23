@@ -23,6 +23,7 @@
 
     methods: {
         add(){
+          this.newPointValue = this.newPointValue.replace(/^\s+|\s+$/g, "");
           if(this.newPointValue.length > 0){
             this.$emit('addNewPoint', this.newPointValue);
             this.newPointValue = "";

@@ -1,5 +1,5 @@
 <template>
-    <input type="checkbox" :value="!modelValue" @change="updateInput">
+    <input type="checkbox" :value="!modelValue" @change="updateInput" key="checkbox">
 </template>
 
 <script>

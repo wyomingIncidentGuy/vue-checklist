@@ -1,13 +1,18 @@
 <template>
     <div class="app">
         <addPoint 
-        @addNewPoint = "addNewPoint"
+            @addNewPoint = "addNewPoint"
         />
         
         <Points
             :points = "this.points"
             @editPoint = "editPoint"
-            @deletePoint = "addToRecycleBin"
+            @addToRecycleBin = "addToRecycleBin"
+            @deletePoint = "deletePoint"
+        />
+
+        <recycleBin 
+            :recycle="this.recycleBin"
         />
     </div>
 </template>
@@ -16,6 +21,7 @@
   import {nanoid} from 'nanoid';
   import Points from './components/points.vue';
   import addPoint from './components/addPoint.vue';
+  import recycleBin from './components/recycleBin.vue';
 
   export default {
     data(){
@@ -45,8 +51,9 @@
             this.points = this.points.filter( (point) => point.id !== id);
         },
 
-        deletePoint(id, array){
-            array = array.filter( (point) => point.id !== id);
+        deletePoint(id){
+            this.points = this.points.filter( (point) => point.id !== id);
+            this.recycleBin = this.recycleBin.filter( (point) => point.id !== id);
         },
 
         addNewPoint(pointText){
@@ -64,6 +71,7 @@
     components :{
         Points,
         addPoint,
+        recycleBin
     }
 
   }

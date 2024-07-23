@@ -1,9 +1,11 @@
 <template>
-    <div class="dialog__background" v-if="visible">
-        <div class="dialog__content">
-            <slot></slot>
+    <transition name="fade">
+        <div class="dialog__background" v-if="visible">
+            <div class="dialog__content">
+                <slot></slot>
+            </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -47,5 +49,15 @@ export default {
         min-width:20vw;
         min-height:100px;
         padding:20px;
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
     }
 </style>

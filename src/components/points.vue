@@ -1,19 +1,17 @@
 <template>
-  <transition name = "points">
     <ul>
       <transition-group name="points__list">
         <point class="point"
-        v-for="point in points"
-        :point="point"
-        :id = "point.id"
-        :key = point.id
-        @editPoint="edit"
-        @deletePoint="del"
+          v-for="point in points"
+          :point="point"
+          :id = "point.id"
+          :key = point.id
+          @editPoint="edit"
+          @addToRecycleBin="addToRecycleBin"
+          @deletePoint="deletePoint"
         />
       </transition-group>
     </ul>
-  </transition>
-    
 </template>
 
 <script>
@@ -24,16 +22,20 @@
         points: Object,
     },
 
-    emits: ["editPoint", "deletePoint"],
+    emits: ["editPoint", "addToRecycleBin", "deletePoint"],
 
     methods: {
         edit(id, newText){
           this.$emit("editPoint", id, newText);
         },
 
-        del(id){
-          this.$emit("deletePoint", id);
+        addToRecycleBin(id){
+          this.$emit("addToRecycleBin", id);
         },
+
+        deletePoint(id){
+          this.$emit("deletePoint", id)
+        }
     },
 
     components: {
