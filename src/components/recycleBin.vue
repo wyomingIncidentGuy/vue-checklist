@@ -1,16 +1,19 @@
 <template>
-    <ul>
-        <transition-group name="points__list">
-            <deletedPoint class ="deleted__point" 
-                v-for="point in recycle"
-                :point="point"
-                :id="point.id"
-                :key="point.id"
-                @recover="recover"
-                @del="del"
-            />
-        </transition-group>
-    </ul>
+    <div>
+        <h1>RECYCLE BIN</h1>
+        <ul>
+            <transition-group name="points__list">
+                <deletedPoint class ="deleted__point" 
+                    v-for="point in recycle"
+                    :point="point"
+                    :id="point.id"
+                    :key="point.id"
+                    @recover="recover"
+                    @del="del"
+                />
+            </transition-group>
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -46,9 +49,11 @@ export default {
 
 <style scoped>
     ul{
-        position:absolute;
-        left:0;
         min-width: 400px;
+    }
+
+    h1{
+        text-align: center;
     }
 
     .deleted__point{

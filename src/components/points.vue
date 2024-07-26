@@ -1,4 +1,5 @@
 <template>
+  <h1>TO-DO LIST</h1>
     <ul>
       <transition-group name="points__list">
         <point class="point"
@@ -51,6 +52,10 @@
     margin-top:15px;
     border-bottom: 1px solid #cfcdcd;
     padding-bottom:15px;
+  }
+
+  h1{
+    text-align: center;
   }
 
   .points__list{

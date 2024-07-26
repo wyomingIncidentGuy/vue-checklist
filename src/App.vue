@@ -3,7 +3,7 @@
         <addPoint 
             @addNewPoint = "addNewPoint"
         />
-        
+
         <Points
             :points = "this.points"
             @editPoint = "editPoint"
