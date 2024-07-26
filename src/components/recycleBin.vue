@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>RECYCLE BIN</h1>
+        <transition name="fade">
+            <h1 v-if="recycle.length != 0">RECYCLE BIN</h1>
+        </transition>
         <ul>
             <transition-group name="points__list">
                 <deletedPoint class ="deleted__point" 
@@ -79,5 +81,15 @@ export default {
     .points__list-leave-to {
         opacity: 0;
         transform: translateY(-30px);
+    }
+
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+        opacity: 0;
     }
 </style>

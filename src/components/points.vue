@@ -1,5 +1,7 @@
 <template>
-  <h1>TO-DO LIST</h1>
+  <transition name="fade">
+    <h1 v-if="points.length != 0">TO-DO LIST</h1>
+  </transition>
     <ul>
       <transition-group name="points__list">
         <point class="point"
@@ -76,5 +78,15 @@
   .points__list-leave-to {
     opacity: 0;
     transform: translateY(-30px);
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+      transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+      opacity: 0;
   }
 </style>

@@ -103,7 +103,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
  .point__item{
     list-style-type: none;
     display: flex;
