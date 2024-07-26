@@ -6,6 +6,8 @@
                 :point="point"
                 :id="point.id"
                 :key="point.id"
+                @recover="recover"
+                @del="del"
             />
         </transition-group>
     </ul>
@@ -19,6 +21,18 @@ export default {
     props:{
         recycle:{
             type: Array,
+        }
+    },
+
+    emits: ["recover", "delete"],
+
+    methods:{
+        recover(id){
+            this.$emit("recover", id);
+        },
+
+        del(id){
+            this.$emit("delete", id);
         }
     },
 

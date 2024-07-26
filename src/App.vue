@@ -13,6 +13,8 @@
 
         <recycleBin 
             :recycle="this.recycleBin"
+            @recover = "recoverPoint"
+            @delete="deletePoint"
         />
     </div>
 </template>
@@ -49,6 +51,12 @@
             });
 
             this.points = this.points.filter( (point) => point.id !== id);
+        },
+
+        recoverPoint(id){
+            let recoveredPoint = this.recycleBin.filter((point) => point.id === id)[0];
+            this.points.push(recoveredPoint);
+            this.recycleBin = this.recycleBin.filter((point) => point.id !==id)
         },
 
         deletePoint(id){
