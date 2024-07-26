@@ -113,6 +113,10 @@ export default {
     max-width: 500px;
   }
 
+  .form__buttons>button{
+    margin-top: 15px;
+  }
+
   .form__buttons{
     display:flex;
     justify-content: flex-start;

@@ -29,7 +29,7 @@
             this.newPointValue = "";
           }
           else{
-            alert('you cannot add empty point');
+            alert('you cannot add an empty point');
           }
         }
     }
@@ -46,5 +46,6 @@
 
   .add__point__button{
     align-self: flex-end;
+    margin-top: 15px;
   }
 </style>

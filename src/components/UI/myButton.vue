@@ -12,13 +12,14 @@ export default {
 
 <style scoped>
     button{
-        margin-top:15px;
         border-radius: 5px;
         border: 1px solid grey;
         background:none;
         cursor:pointer;
         font-size: 18px;
         font-family: 'Roboto-Regular';
+        width: fit-content;
+        height: 25px;
     }
 
     button:hover{

@@ -20,8 +20,13 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
     li{
         list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 400px;
+        max-width: 500px;
     }
 </style>
